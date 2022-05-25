@@ -1,5 +1,5 @@
 var romanToInt = function(s){
-    let total = 0
+    
     const valuesInIt = {
         "I": 1,
        "V": 5,
@@ -20,14 +20,20 @@ var romanToInt = function(s){
     //     item < array[idx + 1] ? total++ : ''
     // });
 
-    for (let i = 0; i <= array2.length + 1; i++) {
-        if(array2[i] >= array2[i + 1]) total += array2[i] 
+    // for (let i = 0; i < array2.length; i++) {
+    //     if(array2[i] >= array2[i + 1]) total += array2[i] 
+    //     if(array2[i] < array2[i + 1]) array2[i + 1] = array2[i + 1] - array2[i]
+    //     if(i == array2.length - 1) total += array2[array2.length - 1]
+    //     console.log(i, array2, total)
+    // }
+
+    for (let i = 0; i < array2.length; i++) {
         if(array2[i] < array2[i + 1]) array2[i + 1] = array2[i + 1] - array2[i]
-        if(i == array2.length - 1) total += array2[array2.length - 1]
-        console.log(i, array2, total)
+        console.log(i, array2)
     }
 
-    return total
+    return array2.reduce((prev, curr) => prev + curr, 0)
+    // return total
 }
 
-console.log(romanToInt("III"))
+console.log(romanToInt("MCMXCIV"))

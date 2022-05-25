@@ -12,4 +12,3 @@ var longestCommonPrefix = function(strs) {
 console.log(longestCommonPrefix(['flower', 'flower', 'flower']))
 
 
-// console.log('thecatsr'.includes('the'))
