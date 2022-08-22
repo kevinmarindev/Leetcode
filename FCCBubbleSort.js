@@ -95,7 +95,7 @@ console.log(bubbleSort([1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92]))
 // reduces the amount of comparasons by one on every loop since we know that every iteration places the biggest num at the end. 
 function bubbleSort3(arr){
     
-    for (let i = arr.length - 1; i > 0 ; i--) {
+    for (let i = arr.length; i >= 0 ; i--) {
         for (let j = 0; j < i - 1; j++) {
             //by checking that j is less than i we make sure not to go up all the way to the nums that have already been sorted
             console.log(arr, arr[j], arr[j + 1])
@@ -108,3 +108,33 @@ function bubbleSort3(arr){
 }
 
 console.log(bubbleSort3([1,3,7,8,3,5,46,9]))
+
+
+
+
+//OPTIMALLY OPTIMIZED  ONYL WORK WHEN ARRAY IS ALMOST SORTED TO BEGIN
+console.log('OPTIMAL')
+
+function bubbleSort4(arr){
+    
+    for (let i = arr.length; i > 0 ; i--) {
+        for (let j = 0; j < i - 1; j++) {
+            //by checking that j is less than i we make sure not to go up all the way to the nums that have already been sorted
+            console.log(arr, arr[j], arr[j + 1])
+            let swapped = false
+            if(arr[j] > arr[j + 1]){
+                //place temp inside conditional so that it only gets assigned and created if condition is met
+                let temp = arr[j];
+                 arr[j] = arr[j + 1];
+                 arr[j + 1] = temp; 
+                 //set swapped 
+                 swapped = true
+            } 
+            // if(swapped) break
+        }
+        console.log('completed on whole iteration')
+    }
+    return arr
+}
+
+console.log(bubbleSort4([3,1,7,8,3,5,46,9]))
