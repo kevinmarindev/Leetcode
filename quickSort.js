@@ -1,39 +1,40 @@
-//1st implement pivot function 
-// It will help to accept three arguments: an array, a start index, and an end index (these can default to 0 and the array length minus 1, respectively)
-// Grab the pivot from the start of the array 
-// Store the current pivot index in a variable (this will keep track of where the pivot should end up)
-// Loop through the array from the start until the end
-// If the pivot is greater than the current element, increment the pivot index variable and then swap the current element with the element at the pivot index
-// Swap the starting element (i.e. the pivot) with the pivot index
-// Return the pivot index
 
+function pivot(arr, start = 0, end = arr.length - 1) {
+  const swap = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+  };
 
+  // We are assuming the pivot is always the first element
+  let pivot = arr[start];
+  let swapIdx = start;
 
-
-function pivot(arr, start = 0, end = arr.length - 1){
-    let pivot = arr[0];
-    let swapIndex = 0;
-    let current = 1
-            5//current < 6 
-    while(current < arr.length){
-        if(pivot >= arr[current]){
-            swapIndex++;
-            //swapi 3
-            [arr[swapIndex], arr[current]] = [arr[swapIndex], arr[current]];
-        }
-        current++
+  for (let i = start + 1; i <= end; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
     }
+  }
 
-    [arr[start], arr[swapIndex]] = [arr[swapIndex], arr[start]]
-
-    return swapIndex
+  // Swap the pivot from the start the swapPoint
+  swap(arr, start, swapIdx);
+  console.log(arr, swapIdx)
+  return swapIdx;
 }
 
 
-console.log(pivot([5,2,12,34,2,5]))
+function quickSort(arr, left = 0, right = arr.length -1){
+    if(left < right){
+        let pivotIndex = pivot(arr, left, right) //3
+        //left
+        quickSort(arr,left,pivotIndex-1);
+        //right
+        quickSort(arr,pivotIndex+1,right);
+      }
+     return arr;
+} 
+           
 
-//pivot: 5
-//
 
-//5,2,2,34,12,5
-//5,2,2,5,32,12
+console.log(quickSort([5,2,2,34,12,5]))
+
+
