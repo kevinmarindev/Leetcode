@@ -1,3 +1,5 @@
+
+
 class SingleLinkList {
     constructor(){
         this.head = null;
@@ -21,3 +23,4 @@ const listOne = new SingleLinkList();
 
 //adding items to this thing
 listOne.push('kevin')
+
