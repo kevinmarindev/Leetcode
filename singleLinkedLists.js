@@ -69,15 +69,37 @@ class SingleLinkList {
         this.length++
         return this
     }
+    //return item at desired position
+    get(idx){
+        if(idx < 0 || idx >= this.length) return null
+        let counter = 0
+        let currentItem, nextitem; 
+        while(counter <=  idx){
+            counter === 0 ? currentItem = this.head : currentItem = currentItem.next;
+            nextitem = currentItem.next 
+            counter++
+        }
+        return currentItem
+    }
+    //change item at desired position 
+    set(idx, val){
+        let desiredItem = this.get(idx)
+        if(desiredItem){
+            desiredItem.value = val
+            return true
+        }
+        return false
+
+    }
 }
 
 const listOne = new SingleLinkList();
 
 
 
-// listOne.push('kevin')
-// listOne.push('jacob')
-// listOne.push('marin')
+listOne.push('kevin')
+listOne.push('jacob')
+listOne.push('marin')
 console.log(listOne)
 
 
