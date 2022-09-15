@@ -57,14 +57,26 @@ class SingleLinkList {
         if(this.length === 0) this.tail = null
         return oldHead
     }
+    //adding unshift method which will add a node at the begining of the list 
+    unshift(value){
+        const newNode = new Node(value);
+        if(this.length < 1) this.head = newNode, this.tail = newNode
+        else{
+            const oldHead = this.head;
+            this.head = newNode;
+            this.head.next = oldHead;
+        }
+        this.length++
+        return this
+    }
 }
 
 const listOne = new SingleLinkList();
 
 
 
-listOne.push('kevin')
-listOne.push('jacob')
+// listOne.push('kevin')
+// listOne.push('jacob')
 // listOne.push('marin')
 console.log(listOne)
 
