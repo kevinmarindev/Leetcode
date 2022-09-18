@@ -91,6 +91,21 @@ class SingleLinkList {
         return false
 
     }
+    //insert item at desired index 
+    insert(idx, val){
+        if(idx > this.length || idx < 0) return false
+        else if(idx === this.length) return Boolean(this.push(val))
+        else if(idx === 0) return Boolean(this.unshift(val))
+        else{
+            const newNode = new Node(val)
+            let insertAt = this.get((idx - 1))
+            const previousNext = insertAt.next
+            insertAt.next = newNode
+            newNode.next = previousNext
+            this.length++
+            return true
+        }
+    }
 }
 
 const listOne = new SingleLinkList();
