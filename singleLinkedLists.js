@@ -106,6 +106,47 @@ class SingleLinkList {
             return true
         }
     }
+    //deletes an item at a given index
+    remove(idx){
+        if(idx > this.length || idx < 0) return undefined
+        else if(idx === (this.length - 1)) return this.pop()
+        else if(idx === 0) return this.shift()
+        else{
+            let itemToremove = this.get(idx)
+            let previousNode = this.get((idx - 1))
+            previousNode.next = itemToremove.next
+            this.length--
+            return itemToremove
+        }
+    }
+    // reverse(){
+    //     let count = 1
+    //     const oldHead = this.head
+    //     const oldTail = this.tail
+
+    //     this.head = oldTail
+    //     this.tail = oldHead
+
+    //     let nextNode, nextNodeNext 
+
+    //     while(count < this.length){
+          
+      
+    //         let currentItem = count === 1 ? oldHead : count === this.length ? oldTail : nextNode
+
+         
+    
+    //         nextNode = count === 1 ? currentItem.next : nextNodeNext
+          
+    //         nextNodeNext = nextNode.next
+    //         nextNode.next = currentItem
+            
+    //         count++
+    
+    //     }
+    //     this.tail.next = null 
+    //     return this
+    // }
 }
 
 const listOne = new SingleLinkList();
