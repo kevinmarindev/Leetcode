@@ -119,34 +119,34 @@ class SingleLinkList {
             return itemToremove
         }
     }
-    // reverse(){
-    //     let count = 1
-    //     const oldHead = this.head
-    //     const oldTail = this.tail
+    reverse(){
+        let count = 1
+        const oldHead = this.head
+        const oldTail = this.tail
 
-    //     this.head = oldTail
-    //     this.tail = oldHead
+        this.head = oldTail
+        this.tail = oldHead
 
-    //     let nextNode, nextNodeNext 
+        let nextNode, nextNodeNext 
 
-    //     while(count < this.length){
+        while(count < this.length){
           
       
-    //         let currentItem = count === 1 ? oldHead : count === this.length ? oldTail : nextNode
+            let currentItem = count === 1 ? oldHead : count === this.length ? oldTail : nextNode
 
          
     
-    //         nextNode = count === 1 ? currentItem.next : nextNodeNext
+            nextNode = count === 1 ? currentItem.next : nextNodeNext
           
-    //         nextNodeNext = nextNode.next
-    //         nextNode.next = currentItem
+            nextNodeNext = nextNode.next
+            nextNode.next = currentItem
             
-    //         count++
+            count++
     
-    //     }
-    //     this.tail.next = null 
-    //     return this
-    // }
+        }
+        this.tail.next = null 
+        return this
+    }
 }
 
 const listOne = new SingleLinkList();
