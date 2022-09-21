@@ -120,6 +120,7 @@ class SingleLinkList {
         }
     }
     reverse(){
+        if(this.length === 1) return this
         let count = 1
         const oldHead = this.head
         const oldTail = this.tail
