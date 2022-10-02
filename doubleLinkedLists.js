@@ -31,7 +31,7 @@ class DoubleLinkedList{
 }
 
 
-let list = new DoubleLinkedList()
+let list = new DoubleLinkedList() 
 console.log(list)
 
 list.push('kevin')
