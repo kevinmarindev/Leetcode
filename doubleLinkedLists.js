@@ -28,6 +28,22 @@ class DoubleLinkedList{
         this.length++
         return this
     }
+    pop(){
+        if(this.length < 1) return undefined
+        const oldTail = this.tail
+        if(this.lenght === 1){
+            this.tail = null;
+            this.head = null;
+        }
+        else{
+            this.tail = oldTail.previous
+            this.tail.next = null
+            //complety remove any reference the old tail has to the list
+            oldTail.prev = null
+        }
+        this.length--
+        return oldTail
+    }
 }
 
 
