@@ -39,11 +39,26 @@ class DoubleLinkedList{
             this.tail = oldTail.previous
             this.tail.next = null
             //complety remove any reference the old tail has to the list
-            oldTail.prev = null
+            oldTail.previous = null
         }
         this.length--
         return oldTail
     }
+    shift(){
+        if(this.length < 1) return undefined
+        const odldHead = this.head
+        if(this.lenght === 1){
+            this.tail = null;
+            this.head = null;
+        }else{
+            this.head = odldHead.next
+            this.head.previous = null
+            odldHead.next = null
+        }
+        this.length--
+        return odldHead
+    }
+    
 }
 
 
