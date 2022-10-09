@@ -71,6 +71,31 @@ class DoubleLinkedList{
         this.length++
         return this
     }
+    get(idx){
+        if(idx < 0 || idx >= this.length) return null
+        if(idx === 0) return this.head
+        if(idx === this.length - 1) return this.tail 
+        let startingPoint = null
+        let currentNode = null
+        console.log((this.length / 2))
+        idx <= this.length / 2 ? startingPoint = 0 : startingPoint = this.length - 1
+        console.log(startingPoint)
+        startingPoint === 0 ? currentNode = this.head : currentNode = this.tail
+        if(startingPoint < 1){
+            for (let i = 0; i < this.length; i++) {
+                if(i === idx) return currentNode
+                currentNode = currentNode.next
+                console.log(currentNode)
+            }
+        }
+        else{
+            for (let i = startingPoint; i > 0; i--) {
+                if(i === idx) return currentNode
+                currentNode = currentNode.previous
+                console.log(currentNode)
+            }
+        }
+    }
     
 }
 
@@ -86,3 +111,14 @@ console.log(list)
 
 list.push('lon')
 console.log(list)
+
+list.push('ramirez')
+console.log(list)
+
+list.push('celis')
+console.log(list)
+
+list.push('florez')
+console.log(list)
+
+list.push('garcia')
