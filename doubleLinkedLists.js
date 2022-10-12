@@ -96,6 +96,11 @@ class DoubleLinkedList{
             }
         }
     }
+    set(val, idx){
+        let nodeToUpdate = this.get(idx)
+        console.log(nodeToUpdate) 
+        return nodeToUpdate ? nodeToUpdate.value = val : false 
+    }
     
 }
 
