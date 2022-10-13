@@ -101,6 +101,21 @@ class DoubleLinkedList{
         console.log(nodeToUpdate) 
         return nodeToUpdate ? nodeToUpdate.value = val : false 
     }
+    insert(val, idx){
+        if(idx < 0 || idx > this.length) return null
+        else if(idx === 0) this.unshift(val)
+        else if(idx === this.length) conosle.log('working'), this.push(val)
+        else {
+            const itemBefore = this.get((idx-1))
+            const itemAfter = itemBefore.next
+            const newNode = new Node(val)
+            itemBefore.next = newNode
+            newNode.previous = itemBefore
+            newNode.next = itemAfter
+            itemAfter.previous = newNode
+        }
+        return true
+    }
     
 }
 
