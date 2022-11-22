@@ -116,6 +116,20 @@ class DoubleLinkedList{
         }
         return true
     }
+    remove(idx){
+        if(idx < 0 || idx >= this.length) return undefined
+        if(idx === 0) return this.shift()
+        if(idx === this.length - 1) return this.pop()
+        let itemToremove = this.get(idx)
+        let itemAhead = itemToremove.next
+        let itemBefore = itemToremove.previous
+        itemAhead.previous = itemBefore
+        itemBefore.next = itemAhead
+        itemToremove.next  = itemToremove.previous = null
+        this.length--
+        return itemToremove
+
+    }
     
 }
 
