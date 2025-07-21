@@ -26,6 +26,17 @@
 
 // Output: true
 
+//! 07/15/25 | time: 5:03 | RT: 34ms O(n) | Mem : 77.5 MB O(n)
+var containsDuplicate = function (nums) {
+  const collector = {};
+
+  for (const num of nums) {
+    collector[num] ? collector[num]++ : (collector[num] = 1);
+    if (collector[num] > 1) return true;
+  }
+  return false;
+};
+
 //! 07/10/25
 var containsDuplicate = function (nums) {
   if (nums.length == 1) return false;
